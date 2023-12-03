@@ -2,14 +2,15 @@ import Logo from "@/components/Logo";
 import { PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+import MobileSideBar from "./MobileSideBar";
 // import { Content } from "next/font/google";
 
 const NavBar = () => {
     return ( 
-        <nav className="fixed z-50 top-2 w-full h-14 border-slate-800 border-b py-4 shadow-sm
+        <nav className="fixed z-50 top-2 w-full h-16 border-slate-800/50  border-b py-4 px-6 shadow-sm
         flex items-center"> 
-        {/* Mobile SideBar shadcn sheets*/}
-        <div className="flex items-center gap-x-6">
+        <MobileSideBar/>
+        <div className="flex items-center gap-x-12">
         <div className="hidden md:flex">
         <Logo/>
         </div>

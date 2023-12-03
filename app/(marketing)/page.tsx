@@ -1,9 +1,10 @@
 import MemberSubscribed from "./_components/MemberSubscribed";
 import SnowFallBg from "./_components/SnowfallBg";
-import {ExternalLink, GithubIcon, LinkedinIcon} from "lucide-react";
+import {CircleDollarSign, ExternalLink, GithubIcon, LinkedinIcon} from "lucide-react";
 import Link from "next/link";
 
 const MarketingPage = () => {
+
     return ( 
         <main className="flex relative h-screen flex-col
         items-center justify-between p-36 max-sm:p-14">
@@ -46,12 +47,15 @@ const MarketingPage = () => {
         <Link href = "https://lol.pranavrajveer.com" target ="_blank">
         <ExternalLink className="h-6 w-6 hover:text-white"/>
         </Link>
+        <Link href = "https://github.com/sponsors/Neon-20?o=esb" target ="_blank">
+        <CircleDollarSign className="h-6 w-6 hover:text-white"/>
+        </Link>
         </div>
         </div>
         </div>
-        <div className="fixed bottom-10 right-6 hidden md:block p-4">
+        {/* <div className="fixed bottom-10 right-6 hidden md:block p-4">
         <iframe src="https://github.com/sponsors/Neon-20/button" title="Sponsor Neon-20" height="32" width="114" className="border-0 rounded-lg cursor-pointer "></iframe>
-        </div>
+        </div> */}
         </main>
     );
 }

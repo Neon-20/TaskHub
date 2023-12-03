@@ -12,6 +12,7 @@ const PlatFormLayout = ({
     appearance={{
         baseTheme:neobrutalism,
         organizationSwitcher: { baseTheme: dark},
+        organizationList: { baseTheme: dark},
         userButton: { baseTheme: dark},
         variables:{
             colorPrimary: 'red' 

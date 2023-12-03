@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Accordion } from "@/components/ui/accordion";
-import NavItem from "./NavItem";
+import NavItem,{ Organization } from "./NavItem";
 
 interface SideProps{
     storageKey?:string
@@ -22,16 +22,23 @@ const SideBar = ({
 
     const {organization: activeOrganization,
     isLoaded:isLoadedOrg} = useOrganization();
-
+    
     const {userMemberships,
     isLoaded: isLoadedOrgList } = useOrganizationList({
     userMemberships:{
         infinite:true //kind of a pagination
     }
     })
-    // If I am wrong I can be here
+    //This basically does capture the truthy values from the 
+    // expanded array
+
     const defaultAccordionValue: string[] = Object.keys(expanded)
-    .filter(key => expanded[key])
+    .reduce((acc:string[],key:string)=>{
+        if(expanded[key]){
+            acc.push(key);
+        }
+        return acc;
+    },[])
 
     //This takes organisation id as string here
     const onExpand = (id:string) =>{
@@ -45,16 +52,33 @@ const SideBar = ({
     if(!isLoadedOrg || !isLoadedOrg || userMemberships.isLoading){
         return(
         <>
-        <Skeleton/>
+        {/* <div className="flex items-center justify-between mb-2">
+        <Skeleton className="bg-neutral-500/20 h-8 w-[50%]"/>
+        <Skeleton className="h-8 w-10 bg-neutral-500/20"/>
+        </div>
+        <div className="space-y-2">
+        < NavItem.Skeleton/>
+        < NavItem.Skeleton/>
+        < NavItem.Skeleton/>
+        < NavItem.Skeleton/> */}
+
+        {/* </div> */}
+    <svg className="pl" width="240" height="240" viewBox="0 0 240 240">
+	<circle className="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
+	<circle className="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
+	<circle className="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+	<circle className="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+</svg>
+
         </>
         )
     }
 
     return ( 
         <>
-        <div className="font-medium text-md text-slate-300 flex items-center mb-1">
-            <span className="pl-4">
-            Workspaces
+        <div className="font-medium text-sm text-slate-400 flex items-center mb-1">
+            <span className="pl-2">
+            My Workspaces
             </span>
         <Button
         asChild
@@ -70,14 +94,14 @@ const SideBar = ({
         <Accordion
         type="multiple"
         defaultValue={defaultAccordionValue}
-        className="space-y-2"
+        className="space-y-2 text-white"
         >
         {userMemberships.data?.map(({organization})=>(
             <NavItem
             key={organization.id}
             isActive = {activeOrganization?.id === organization.id}
             isExpanded = {expanded[organization.id]}
-            organization = {organization}
+            organization = {organization as Organization}
             onExpand = {onExpand}
             />
         ))}
@@ -85,5 +109,17 @@ const SideBar = ({
         </>
     );
 }
+
+// NavItem.Skeleton = function SkeletonNavItem(){
+//     return (
+//     <div className="flex items-center gap-x-2">
+//     <div className="w-8 h-8 relative shrink-0">
+//     <Skeleton className="h-full w-full absolute"/> 
+//     {/* For the image skeleton */}
+//     </div>
+//     <Skeleton className="h-8 w-full"/>
+//     </div>
+//     )
+// }
 
 export default SideBar;

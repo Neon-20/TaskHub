@@ -2,7 +2,6 @@
 const OrganizationPage = () => {
     return ( 
         <div className="text-white">
-            Organization Page
         </div>
     );
 }
