@@ -4,7 +4,6 @@ import {CircleDollarSign, ExternalLink, GithubIcon, LinkedinIcon} from "lucide-r
 import Link from "next/link";
 
 const MarketingPage = () => {
-
     return ( 
         <main className="flex relative h-screen flex-col
         items-center justify-between p-36 max-sm:p-14">

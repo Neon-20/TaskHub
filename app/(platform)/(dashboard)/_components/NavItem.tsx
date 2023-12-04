@@ -10,8 +10,7 @@ import{
     Settings
 }
 from "lucide-react"
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
+import { useRouter,usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 //Define the props in here
@@ -42,22 +41,22 @@ const routes = [
     {
         label:"Boards",
         icon: <Layout className="w-4 h-4 mr-2"/>,
-        href: `organization/${organization.id}`
+        href: `/organization/${organization.id}`
     },
     {
         label:"Activity",
         icon: <Activity className="w-4 h-4 mr-2"/>,
-        href: `organization/${organization.id}/activity`
+        href: `/organization/${organization.id}/activity`
     },
     {
         label:"Settings",
         icon: <Settings className="w-4 h-4 mr-2"/>,
-        href: `organization/${organization.id}/settings`
+        href: `/organization/${organization.id}/settings`
     },
     {
         label:"Billing",
         icon: <CreditCard className="w-4 h-4 mr-2"/>,
-        href: `organization/${organization.id}/billing`
+        href: `/organization/${organization.id}/billing`
     },
 ]
 
@@ -99,7 +98,7 @@ const onClick = (href:string) =>{
             onClick={()=>onClick(route.href)}
             className={cn(
             "w-full font-normal justify-start pl-10 mb-1",
-            pathname === route.href && "bg-sky-500 text-purple-300"
+            pathname === route.href && "bg-sky-400/10 text-pink-300"
             )}
             variant="ghost" 
             >

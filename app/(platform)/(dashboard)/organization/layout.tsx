@@ -11,8 +11,8 @@ const OrganizationalLayout = ({
     <div className="flex gap-x-7">
     <div className="w-60 shrink-0 hidden md:block">
     <SideBar/>
-    {children}
     </div>
+    {children}
     </div>
     </main>
     );

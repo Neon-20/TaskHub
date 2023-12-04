@@ -1,6 +1,7 @@
-import {ClerkProvider} from "@clerk/nextjs";
+import { ClerkProvider, OrganizationProfile } from '@clerk/nextjs';
 import {dark,neobrutalism} from "@clerk/themes";
 import { Duru_Sans } from "next/font/google";
+import { Organization } from './(dashboard)/_components/NavItem';
 
 const PlatFormLayout = ({
     children,
@@ -10,13 +11,9 @@ const PlatFormLayout = ({
     return ( 
     <ClerkProvider
     appearance={{
-        baseTheme:neobrutalism,
-        organizationSwitcher: { baseTheme: dark},
-        organizationList: { baseTheme: dark},
-        userButton: { baseTheme: dark},
-        variables:{
-            colorPrimary: 'red' 
-        }
+        baseTheme:dark,
+        signIn: { baseTheme: neobrutalism},
+        signUp: { baseTheme: neobrutalism},
     }}
     >
         {children}

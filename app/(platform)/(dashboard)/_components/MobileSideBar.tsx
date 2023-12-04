@@ -6,7 +6,6 @@ import { useEffect,useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet,SheetContent } from "@/components/ui/sheet";
 import SideBar from "./sidebar";
-import { dark } from '@clerk/themes';
 
 const MobileSideBar = () => {
 const onOpen = useMobileSideBar((state)=>state.onOpen);
