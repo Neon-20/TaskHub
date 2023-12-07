@@ -10,6 +10,21 @@ export default function CreateOrganizationPage(){
         hidePersonal
         afterSelectOrganizationUrl = {"/organization/:id"}
         afterCreateOrganizationUrl = {"/organization/:id"}
+        appearance={{
+            elements:{
+                card:{
+                    height: "screen",
+                    // color: "black",
+                    paddingLeft: "30px",
+                    paddingRight: "20px",
+                    // display: "flex",
+                    // alignItems: "center",
+                    justifyContent: "center",
+                    // flexDirection: "column"
+                },
+            
+            }
+        }}
         />
         </>
         )

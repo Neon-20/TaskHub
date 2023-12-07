@@ -5,7 +5,9 @@ export default function Page() {
 return (
     <>
     <SnowFallBg />
-    <SignIn />;
+    <SignIn 
+    
+    />;
     </>
 )
 }

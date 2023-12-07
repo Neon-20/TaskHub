@@ -2,6 +2,8 @@ import MemberSubscribed from "./_components/MemberSubscribed";
 import SnowFallBg from "./_components/SnowfallBg";
 import {CircleDollarSign, ExternalLink, GithubIcon, LinkedinIcon} from "lucide-react";
 import Link from "next/link";
+// import {PostHog} from "posthog-node"
+
 
 const MarketingPage = () => {
     return ( 

@@ -11,9 +11,7 @@ const PlatFormLayout = ({
     return ( 
     <ClerkProvider
     appearance={{
-        baseTheme:dark,
-        signIn: { baseTheme: neobrutalism},
-        signUp: { baseTheme: neobrutalism},
+        baseTheme:[neobrutalism,dark],
     }}
     >
         {children}
