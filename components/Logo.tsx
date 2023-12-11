@@ -25,9 +25,11 @@ const Logo = () => {
         width="25"
         height="25"
         />
+        <Link href="">
         <p className="text-xl text-white font-sans font-semibold text-transparent pb-1">
         TaskHub
         </p>
+        </Link>
         </div>
     </Link>
 );

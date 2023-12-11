@@ -2,7 +2,7 @@ import { ActionState, FieldErrors } from "@/lib/create-safe-action";
 import { useState,useCallback } from "react";
 // import { FieldErrors } from '../lib/create-safe-action';
 
-type Action<TInput,TOutput> = (data:TInput) =>
+export type Action<TInput,TOutput> = (data:TInput) =>
 Promise<ActionState<TInput,TOutput>>
 
 //creating an interface to show what we expect from this hook.
@@ -22,7 +22,6 @@ export const useAction = <TInput,TOutput>(
     const[data,setData] = useState<TOutput | undefined>(undefined);
     const[isLoading,setIsLoading] = useState<boolean>(false);
 
-
     const execute = useCallback(
         async (input:TInput)=>{
         setIsLoading(true);
@@ -31,9 +30,7 @@ export const useAction = <TInput,TOutput>(
             if(!result){
                 return;
             }
-            if(result.fieldErrors){
-                setFieldErrors(result.fieldErrors);
-            }
+            setFieldErrors(result.fieldErrors);
             if(result.error){
                 setError(result.error);
                 options.onError?.(result.error)

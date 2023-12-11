@@ -2,7 +2,7 @@ import z from "zod";
 
 //it can be called of from other files
 export type FieldErrors<T> = {
-    [K in keyof T]?:string
+    [K in keyof T]?:string[]
 }
 
 export type ActionState<TInput,TOutput> = {
@@ -25,6 +25,8 @@ export const createSafeAction = <TInput,TOutput>(
         return handler(validationResult.data)
     }
 }
+
+
 
 
 
